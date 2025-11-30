@@ -4,6 +4,7 @@ import CustomCursor from "@/components/ui/CustomCursor";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import PageWrapper from "@/components/layout/PageWrapper";
+import Preloader from "@/components/layout/Preloader";
 
 export const metadata: Metadata = {
   title: "IgniteEra | Breaking the Chains of Education",
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased bg-black text-white overflow-x-hidden selection:bg-ignite-orange selection:text-white">
+        <Preloader />
         <CustomCursor />
         <NavBar />
         <PageWrapper>{children}</PageWrapper>

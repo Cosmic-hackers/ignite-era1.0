@@ -124,118 +124,50 @@ export default function Hero() {
             {/* Glass Overlay */}
             <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px] z-0" />
 
-            {/* Left Corner Device with Wings */}
+            {/* Left Corner Helmet */}
             <div className="absolute top-8 left-8 z-20">
-                <div ref={cyclopsLeftRef} className="relative w-36 h-36">
-                    {/* Outer purple glow */}
-                    <div className="absolute inset-0 rounded-full bg-purple-600 blur-3xl opacity-25" />
-
-                    {/* Wing-like petal structures */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-                        {/* Top-left petal */}
-                        <div className="absolute -top-2 -left-2 w-14 h-20" style={{ transform: 'rotate(-30deg)' }}>
-                            <div className="w-full h-full rounded-tl-[50px] rounded-bl-[10px] border-l-[3px] border-t-[3px] border-purple-500 bg-gradient-to-br from-purple-500/15 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
-                        </div>
-
-                        {/* Top-right petal */}
-                        <div className="absolute -top-2 -right-2 w-14 h-20" style={{ transform: 'rotate(30deg)' }}>
-                            <div className="w-full h-full rounded-tr-[50px] rounded-br-[10px] border-r-[3px] border-t-[3px] border-purple-500 bg-gradient-to-bl from-purple-500/15 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
-                        </div>
-
-                        {/* Bottom-left petal */}
-                        <div className="absolute -bottom-2 -left-2 w-14 h-20" style={{ transform: 'rotate(30deg)' }}>
-                            <div className="w-full h-full rounded-bl-[50px] rounded-tl-[10px] border-l-[3px] border-b-[3px] border-purple-500 bg-gradient-to-tr from-purple-500/15 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
-                        </div>
-
-                        {/* Bottom-right petal */}
-                        <div className="absolute -bottom-2 -right-2 w-14 h-20" style={{ transform: 'rotate(-30deg)' }}>
-                            <div className="w-full h-full rounded-br-[50px] rounded-tr-[10px] border-r-[3px] border-b-[3px] border-purple-500 bg-gradient-to-tl from-purple-500/15 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
-                        </div>
-                    </div>
-
-                    {/* Main spherical body */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 shadow-2xl">
-                        {/* Metallic shine */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/15 via-transparent to-transparent" />
-
-                        {/* Center glowing core */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-purple-500 shadow-[0_0_25px_rgba(168,85,247,1)] animate-pulse">
-                            <div className="absolute inset-1 rounded-full bg-purple-400" />
-                            <div className="absolute inset-2 rounded-full bg-white" />
-                        </div>
-
-                        {/* Mechanical ring */}
-                        <div className="absolute inset-0 rounded-full border border-gray-600/50" />
-                    </div>
+                <div ref={cyclopsLeftRef} className="relative w-64 h-64">
+                    <Image
+                        src="/images/helmet-left.png"
+                        alt="Corner Helmet"
+                        fill
+                        className="object-contain drop-shadow-[0_0_30px_rgba(168,85,247,0.6)]"
+                    />
                 </div>
 
                 {/* Light beam falling at 45 degrees */}
                 <div
                     ref={beamLeftRef}
-                    className="absolute top-18 left-18 w-[650px] h-[3px] origin-left"
+                    className="absolute top-32 left-32 w-[650px] h-[4px] origin-left"
                     style={{
                         transform: 'rotate(45deg)',
-                        background: 'linear-gradient(to right, rgba(168,85,247,0.7) 0%, rgba(168,85,247,0.4) 40%, transparent 100%)',
-                        filter: 'blur(6px)',
-                        boxShadow: '0 0 20px rgba(168,85,247,0.4)'
+                        background: 'linear-gradient(to right, rgba(168,85,247,0.8) 0%, rgba(168,85,247,0.5) 40%, transparent 100%)',
+                        filter: 'blur(8px)',
+                        boxShadow: '0 0 25px rgba(168,85,247,0.5)'
                     }}
                 />
             </div>
 
-            {/* Right Corner Device with Wings */}
+            {/* Right Corner Helmet */}
             <div className="absolute top-8 right-8 z-20">
-                <div ref={cyclopsRightRef} className="relative w-36 h-36">
-                    {/* Outer purple glow */}
-                    <div className="absolute inset-0 rounded-full bg-purple-600 blur-3xl opacity-25" />
-
-                    {/* Wing-like petal structures */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-                        {/* Top-left petal */}
-                        <div className="absolute -top-2 -left-2 w-14 h-20" style={{ transform: 'rotate(-30deg)' }}>
-                            <div className="w-full h-full rounded-tl-[50px] rounded-bl-[10px] border-l-[3px] border-t-[3px] border-purple-500 bg-gradient-to-br from-purple-500/15 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
-                        </div>
-
-                        {/* Top-right petal */}
-                        <div className="absolute -top-2 -right-2 w-14 h-20" style={{ transform: 'rotate(30deg)' }}>
-                            <div className="w-full h-full rounded-tr-[50px] rounded-br-[10px] border-r-[3px] border-t-[3px] border-purple-500 bg-gradient-to-bl from-purple-500/15 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
-                        </div>
-
-                        {/* Bottom-left petal */}
-                        <div className="absolute -bottom-2 -left-2 w-14 h-20" style={{ transform: 'rotate(30deg)' }}>
-                            <div className="w-full h-full rounded-bl-[50px] rounded-tl-[10px] border-l-[3px] border-b-[3px] border-purple-500 bg-gradient-to-tr from-purple-500/15 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
-                        </div>
-
-                        {/* Bottom-right petal */}
-                        <div className="absolute -bottom-2 -right-2 w-14 h-20" style={{ transform: 'rotate(-30deg)' }}>
-                            <div className="w-full h-full rounded-br-[50px] rounded-tr-[10px] border-r-[3px] border-b-[3px] border-purple-500 bg-gradient-to-tl from-purple-500/15 to-transparent shadow-[0_0_20px_rgba(168,85,247,0.5)]" />
-                        </div>
-                    </div>
-
-                    {/* Main spherical body */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 shadow-2xl">
-                        {/* Metallic shine */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/15 via-transparent to-transparent" />
-
-                        {/* Center glowing core */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-purple-500 shadow-[0_0_25px_rgba(168,85,247,1)] animate-pulse">
-                            <div className="absolute inset-1 rounded-full bg-purple-400" />
-                            <div className="absolute inset-2 rounded-full bg-white" />
-                        </div>
-
-                        {/* Mechanical ring */}
-                        <div className="absolute inset-0 rounded-full border border-gray-600/50" />
-                    </div>
+                <div ref={cyclopsRightRef} className="relative w-64 h-64">
+                    <Image
+                        src="/images/helmet-right.png"
+                        alt="Corner Helmet"
+                        fill
+                        className="object-contain drop-shadow-[0_0_30px_rgba(168,85,247,0.6)]"
+                    />
                 </div>
 
                 {/* Light beam falling at 45 degrees */}
                 <div
                     ref={beamRightRef}
-                    className="absolute top-18 right-18 w-[650px] h-[3px] origin-right"
+                    className="absolute top-32 right-32 w-[650px] h-[4px] origin-right"
                     style={{
                         transform: 'rotate(-45deg)',
-                        background: 'linear-gradient(to left, rgba(168,85,247,0.7) 0%, rgba(168,85,247,0.4) 40%, transparent 100%)',
-                        filter: 'blur(6px)',
-                        boxShadow: '0 0 20px rgba(168,85,247,0.4)'
+                        background: 'linear-gradient(to left, rgba(168,85,247,0.8) 0%, rgba(168,85,247,0.5) 40%, transparent 100%)',
+                        filter: 'blur(8px)',
+                        boxShadow: '0 0 25px rgba(168,85,247,0.5)'
                     }}
                 />
             </div>
