@@ -11,12 +11,6 @@ export default function Hero() {
     const subtitleRef = useRef<HTMLParagraphElement>(null);
     const ctaRef = useRef<HTMLDivElement>(null);
     const eagleRef = useRef<HTMLDivElement>(null);
-    const cyclopsLeftRef = useRef<HTMLDivElement>(null);
-    const cyclopsRightRef = useRef<HTMLDivElement>(null);
-    const beamLeftRef = useRef<HTMLDivElement>(null);
-    const beamRightRef = useRef<HTMLDivElement>(null);
-
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -47,22 +41,7 @@ export default function Hero() {
                 }
             }
 
-            // 2. Cyclops Lights Animation
-            const cyclopsTimeline = gsap.timeline();
-
-            // Entrance animation from corners
-            cyclopsTimeline
-                .fromTo([cyclopsLeftRef.current, cyclopsRightRef.current],
-                    { scale: 0, opacity: 0, rotation: 0 },
-                    { scale: 1, opacity: 1, duration: 1.5, ease: "elastic.out(1, 0.5)" }
-                )
-                .fromTo([beamLeftRef.current, beamRightRef.current],
-                    { opacity: 0, scaleX: 0 },
-                    { opacity: 0.7, scaleX: 1, duration: 1, ease: "power2.out" },
-                    "-=1"
-                );
-
-            // 3. Text Reveal Animation
+            // Text Reveal Animation
             const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
             tl.fromTo(eagleRef.current,
@@ -82,31 +61,8 @@ export default function Hero() {
 
         }, heroRef);
 
-        // Mouse tracking for micro-movement
-        const handleMouseMove = (e: MouseEvent) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 5;
-            const y = (e.clientY / window.innerHeight - 0.5) * 5;
-
-            setMousePos({ x, y });
-
-            gsap.to(cyclopsLeftRef.current, {
-                x: x * 2,
-                y: y * 2,
-                duration: 0.5
-            });
-
-            gsap.to(cyclopsRightRef.current, {
-                x: -x * 2,
-                y: y * 2,
-                duration: 0.5
-            });
-        };
-
-        window.addEventListener("mousemove", handleMouseMove);
-
         return () => {
             ctx.revert();
-            window.removeEventListener("mousemove", handleMouseMove);
         };
     }, []);
 
@@ -124,79 +80,38 @@ export default function Hero() {
             {/* Glass Overlay */}
             <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px] z-0" />
 
-            {/* Left Corner Helmet */}
-            <div className="absolute top-8 left-8 z-20">
-                <div ref={cyclopsLeftRef} className="relative w-64 h-64">
-                    <Image
-                        src="/images/helmet-left.png"
-                        alt="Corner Helmet"
-                        fill
-                        className="object-contain drop-shadow-[0_0_30px_rgba(168,85,247,0.6)]"
-                    />
-                </div>
+            <div className="z-10 text-center px-4 max-w-7xl mx-auto flex flex-col items-center relative">
 
-                {/* Light beam falling at 45 degrees */}
-                <div
-                    ref={beamLeftRef}
-                    className="absolute top-32 left-32 w-[650px] h-[4px] origin-left"
-                    style={{
-                        transform: 'rotate(45deg)',
-                        background: 'linear-gradient(to right, rgba(168,85,247,0.8) 0%, rgba(168,85,247,0.5) 40%, transparent 100%)',
-                        filter: 'blur(8px)',
-                        boxShadow: '0 0 25px rgba(168,85,247,0.5)'
-                    }}
-                />
-            </div>
+                {/* Central Holographic Portal & Title */}
+                <div className="relative mb-12 group perspective-1000">
+                    {/* Rotating Energy Rings (Background) */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] pointer-events-none">
+                        {/* Outer Ring */}
+                        <div className="absolute inset-0 border border-cyan-500/20 rounded-full animate-[spin_20s_linear_infinite]" />
+                        <div className="absolute inset-0 border-t border-cyan-500/50 rounded-full animate-[spin_20s_linear_infinite]" />
 
-            {/* Right Corner Helmet */}
-            <div className="absolute top-8 right-8 z-20">
-                <div ref={cyclopsRightRef} className="relative w-64 h-64">
-                    <Image
-                        src="/images/helmet-right.png"
-                        alt="Corner Helmet"
-                        fill
-                        className="object-contain drop-shadow-[0_0_30px_rgba(168,85,247,0.6)]"
-                    />
-                </div>
+                        {/* Middle Ring */}
+                        <div className="absolute inset-[15%] border border-purple-500/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+                        <div className="absolute inset-[15%] border-b border-purple-500/50 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
 
-                {/* Light beam falling at 45 degrees */}
-                <div
-                    ref={beamRightRef}
-                    className="absolute top-32 right-32 w-[650px] h-[4px] origin-right"
-                    style={{
-                        transform: 'rotate(-45deg)',
-                        background: 'linear-gradient(to left, rgba(168,85,247,0.8) 0%, rgba(168,85,247,0.5) 40%, transparent 100%)',
-                        filter: 'blur(8px)',
-                        boxShadow: '0 0 25px rgba(168,85,247,0.5)'
-                    }}
-                />
-            </div>
-
-            <div className="z-10 text-center px-4 max-w-7xl mx-auto flex flex-col items-center">
-                {/* Cinematic Eagle */}
-                <div ref={eagleRef} className="relative mb-8 group perspective-1000 w-full max-w-5xl">
-                    {/* Eagle Image Container */}
-                    <div className="relative z-10 w-full aspect-[16/9]">
-                        <div className="relative w-full h-full">
-                            <Image
-                                src="/images/eagle.png"
-                                alt="Cinematic Eagle"
-                                fill
-                                priority
-                                className="object-contain grayscale"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1400px"
-                            />
-                        </div>
-
-                        {/* Bottom Fade */}
-                        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+                        {/* Inner Core */}
+                        <div className="absolute inset-[35%] bg-gradient-to-br from-cyan-500/5 to-purple-500/5 rounded-full blur-2xl animate-pulse" />
+                        <div className="absolute inset-[38%] border border-white/10 rounded-full animate-[spin_10s_linear_infinite]" />
                     </div>
 
-                    {/* Signature */}
-                    <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20">
-                        <p className="text-white/60 text-sm md:text-base font-light italic tracking-wider">
-                            — IgniteEra
-                        </p>
+                    {/* Main Title */}
+                    <div ref={eagleRef} className="relative z-10 mix-blend-screen">
+                        <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-none select-none">
+                            <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-600 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                                IGNITE
+                            </span>
+                            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-purple-500 drop-shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+                                ERA
+                            </span>
+                        </h1>
+
+                        {/* Glitch/Scanline Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent h-[2px] w-full animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] opacity-20" />
                     </div>
                 </div>
 
