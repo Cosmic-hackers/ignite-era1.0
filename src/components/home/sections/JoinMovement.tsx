@@ -12,28 +12,28 @@ const roles = [
 
 export default function JoinMovement() {
     return (
-        <section className="py-32 px-4 text-center">
+        <section className="py-20 sm:py-32 px-4 text-center">
             <div className="max-w-4xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                     IgniteEra is not a school. <br />
-                    <span className="text-ignite-orange">It’s a movement.</span>
+                    <span className="text-ignite-orange">It&apos;s a movement.</span>
                 </h2>
-                <p className="text-xl text-gray-400 mb-16">
+                <p className="text-base sm:text-xl text-gray-400 mb-12 sm:mb-16">
                     Be part of redefining education and human potential.
                 </p>
 
                 {/* Dock Style Container */}
-                <div className="inline-flex items-end gap-4 p-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl mb-12">
+                <div className="inline-flex flex-wrap justify-center items-end gap-3 sm:gap-4 p-3 sm:p-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl mb-12">
                     {roles.map((role, index) => {
                         const Icon = role.icon;
                         return (
                             <motion.button
                                 key={index}
                                 whileHover={{ scale: 1.2, y: -10 }}
-                                className="group relative flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-white/5 hover:bg-ignite-orange/20 border border-white/5 hover:border-ignite-orange/50 transition-colors"
+                                className="group relative flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/5 hover:bg-ignite-orange/20 border border-white/5 hover:border-ignite-orange/50 transition-colors"
                             >
-                                <Icon className="w-8 h-8 text-white group-hover:text-ignite-orange transition-colors" />
-                                <span className="absolute -bottom-8 text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white group-hover:text-ignite-orange transition-colors" />
+                                <span className="absolute -bottom-7 sm:-bottom-8 text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                                     Join as {role.title}
                                 </span>
                             </motion.button>

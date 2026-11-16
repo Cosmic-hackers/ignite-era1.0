@@ -21,8 +21,42 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-  cursor: none;
-  /* Hide default cursor for custom one */
+  /* Standard arrow cursor */
+}
+
+/* On touch/mobile devices restore default cursor */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* Prevent horizontal overflow on all elements */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Ensure content is never hidden behind the fixed bottom nav */
+main, footer {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Global bottom spacing so fixed dock doesn't obscure content */
+body > div {
+  /* PageWrapper wraps all pages */
+}
+
+/* Add bottom clearance for the fixed NavBar on all pages */
+.min-h-screen:not([data-no-nav-pad]) {
+  padding-bottom: 7rem;
+}
+
+@media (max-width: 639px) {
+  /* More clearance on mobile for the FAB */
+  .min-h-screen:not([data-no-nav-pad]) {
+    padding-bottom: 6rem;
+  }
 }
 
 /* Custom Scrollbar */
@@ -63,22 +97,6 @@ body {
 /* Text Glow */
 .text-glow {
   text-shadow: 0 0 10px rgba(255, 122, 0, 0.5), 0 0 20px rgba(255, 122, 0, 0.3);
-}
-
-/* Custom Cursor */
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 9999;
-  pointer-events: none;
-  width: 12px;
-  height: 12px;
-  background-color: var(--ignite-orange);
-  box-shadow: 0 0 10px var(--ignite-orange), 0 0 20px var(--ignite-orange);
-  mix-blend-mode: difference;
 }
 
 /* Utilities */

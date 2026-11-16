@@ -75,34 +75,36 @@ export default function Timeline() {
     }, []);
 
     return (
-        <div ref={containerRef} className="relative max-w-4xl mx-auto py-20 px-4">
-            {/* Center Line */}
+        <div ref={containerRef} className="relative max-w-4xl mx-auto py-10 sm:py-20 px-4">
+            {/* Center Line – left on mobile, center on md+ */}
             <div
                 ref={lineRef}
-                className="absolute left-1/2 top-0 w-1 bg-ignite-orange -translate-x-1/2 rounded-full"
+                className="absolute left-4 md:left-1/2 top-0 w-1 bg-ignite-orange md:-translate-x-1/2 rounded-full"
             />
 
-            <div className="flex flex-col gap-24">
+            <div className="flex flex-col gap-12 sm:gap-24">
                 {milestones.map((milestone, index) => (
                     <div
                         key={index}
-                        className={`timeline-item flex items-center justify-between w-full ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                            }`}
+                        className={`timeline-item relative flex items-start md:items-center w-full
+                            pl-12 md:pl-0
+                            ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}
+                        `}
                     >
                         {/* Content */}
-                        <div className="w-[45%] glass-panel p-6 rounded-2xl hover:border-ignite-orange transition-colors duration-300">
+                        <div className="w-full md:w-[45%] glass-panel p-5 sm:p-6 rounded-2xl hover:border-ignite-orange transition-colors duration-300">
                             <span className="text-ignite-orange font-bold text-xl mb-2 block">
                                 {milestone.year}
                             </span>
-                            <h3 className="text-2xl font-bold mb-2 text-white">{milestone.title}</h3>
-                            <p className="text-gray-400">{milestone.description}</p>
+                            <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">{milestone.title}</h3>
+                            <p className="text-gray-400 text-sm sm:text-base">{milestone.description}</p>
                         </div>
 
-                        {/* Dot */}
-                        <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-ignite-orange rounded-full shadow-[0_0_10px_#FF7A00]" />
+                        {/* Dot – left on mobile, center on md+ */}
+                        <div className="absolute left-4 md:left-1/2 top-5 md:top-auto -translate-x-1/2 w-4 h-4 bg-ignite-orange rounded-full shadow-[0_0_10px_#FF7A00] z-10" />
 
-                        {/* Empty Space for alignment */}
-                        <div className="w-[45%]" />
+                        {/* Empty Space for alternating layout (desktop only) */}
+                        <div className="hidden md:block md:w-[45%]" />
                     </div>
                 ))}
             </div>

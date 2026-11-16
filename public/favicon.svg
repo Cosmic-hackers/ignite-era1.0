@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF9A00"/>
+      <stop offset="100%" stop-color="#FF4500"/>
+    </radialGradient>
+    <linearGradient id="flame" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066"/>
+      <stop offset="50%" stop-color="#FF7A00"/>
+      <stop offset="100%" stop-color="#CC2200"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+  <!-- Flame shape -->
+  <path
+    d="M16 4
+       C16 4 20 9 19 13
+       C22 10 22 7 22 7
+       C25 12 24 17 21 20
+       C23 19 24 16 24 16
+       C26 20 24 26 20 28
+       C18 29 14 29 12 28
+       C8 26 6 20 8 16
+       C8 16 9 19 11 20
+       C8 17 7 12 10 7
+       C10 7 10 10 13 13
+       C12 9 16 4 16 4Z"
+    fill="url(#flame)"
+  />
+  <!-- Inner bright core -->
+  <ellipse cx="16" cy="22" rx="3.5" ry="4" fill="#FFE566" opacity="0.75"/>
+</svg>

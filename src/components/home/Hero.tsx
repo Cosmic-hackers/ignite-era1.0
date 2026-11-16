@@ -80,28 +80,23 @@ export default function Hero() {
             {/* Glass Overlay */}
             <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px] z-0" />
 
-            <div className="z-10 text-center px-4 max-w-7xl mx-auto flex flex-col items-center relative">
+            <div className="z-10 text-center px-4 sm:px-6 max-w-7xl mx-auto flex flex-col items-center relative w-full">
 
                 {/* Central Holographic Portal & Title */}
-                <div className="relative mb-12 group perspective-1000">
-                    {/* Rotating Energy Rings (Background) */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] pointer-events-none">
-                        {/* Outer Ring */}
+                <div className="relative mb-8 sm:mb-12 group perspective-1000">
+                    {/* Rotating Energy Rings */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] md:w-[600px] md:h-[600px] pointer-events-none">
                         <div className="absolute inset-0 border border-cyan-500/20 rounded-full animate-[spin_20s_linear_infinite]" />
                         <div className="absolute inset-0 border-t border-cyan-500/50 rounded-full animate-[spin_20s_linear_infinite]" />
-
-                        {/* Middle Ring */}
                         <div className="absolute inset-[15%] border border-purple-500/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
                         <div className="absolute inset-[15%] border-b border-purple-500/50 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-
-                        {/* Inner Core */}
                         <div className="absolute inset-[35%] bg-gradient-to-br from-cyan-500/5 to-purple-500/5 rounded-full blur-2xl animate-pulse" />
                         <div className="absolute inset-[38%] border border-white/10 rounded-full animate-[spin_10s_linear_infinite]" />
                     </div>
 
                     {/* Main Title */}
                     <div ref={eagleRef} className="relative z-10 mix-blend-screen">
-                        <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-none select-none">
+                        <h1 className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter leading-none select-none">
                             <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-600 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
                                 IGNITE
                             </span>
@@ -109,34 +104,32 @@ export default function Hero() {
                                 ERA
                             </span>
                         </h1>
-
-                        {/* Glitch/Scanline Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent h-[2px] w-full animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] opacity-20" />
                     </div>
                 </div>
 
                 <p
                     ref={subtitleRef}
-                    className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
+                    className="text-base sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-light px-2"
                 >
-                    Education failed to unlock human potential. <br />
-                    So we're building the system that will.
+                    Education failed to unlock human potential. <br className="hidden sm:block" />
+                    So we&apos;re building the system that will.
                 </p>
 
-                <div ref={ctaRef} className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center w-full px-4">
                     <Link
                         href="/involved"
-                        className="group relative px-10 py-5 bg-ignite-orange text-black font-bold text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,122,0,0.6)]"
+                        className="group relative w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 bg-ignite-orange text-black font-bold text-base sm:text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,122,0,0.6)]"
                     >
                         <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                        <span className="relative flex items-center gap-2">
+                        <span className="relative flex items-center justify-center gap-2">
                             Enter the Revolution <ArrowRight className="w-5 h-5" />
                         </span>
                     </Link>
 
                     <Link
                         href="/knowledge-hub"
-                        className="group px-10 py-5 bg-white/5 border border-white/10 text-white font-bold text-lg rounded-full hover:bg-white/10 transition-all hover:border-ignite-orange/50 backdrop-blur-md"
+                        className="group w-full sm:w-auto px-8 py-4 sm:px-10 sm:py-5 bg-white/5 border border-white/10 text-white font-bold text-base sm:text-lg rounded-full hover:bg-white/10 transition-all hover:border-ignite-orange/50 backdrop-blur-md text-center"
                     >
                         Explore Knowledge Hub
                     </Link>

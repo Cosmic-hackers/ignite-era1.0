@@ -42,24 +42,24 @@ export default function TheProblem() {
     }, []);
 
     return (
-        <section ref={containerRef} className="py-20 px-4">
+        <section ref={containerRef} className="py-16 sm:py-20 px-4">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-4xl font-bold mb-16 text-center">The Problem</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <h2 className="text-3xl sm:text-4xl font-bold mb-10 sm:mb-16 text-center">The Problem</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                     {problems.map((item, index) => (
                         <div
                             key={index}
-                            className="problem-card group relative h-80 perspective-1000"
+                            className="problem-card group relative min-h-[280px] sm:h-80 perspective-1000"
                         >
-                            <div className="absolute inset-0 bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col justify-end transition-all duration-500 group-hover:transform group-hover:rotate-x-10 group-hover:rotate-y-10 group-hover:shadow-[0_0_30px_rgba(255,122,0,0.2)] group-hover:border-ignite-orange/50">
+                            <div className="absolute inset-0 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-end transition-all duration-500 group-hover:transform group-hover:rotate-x-10 group-hover:rotate-y-10 group-hover:shadow-[0_0_30px_rgba(255,122,0,0.2)] group-hover:border-ignite-orange/50">
                                 <div className="mb-auto">
-                                    <span className="text-6xl font-bold text-white/10 group-hover:text-ignite-orange/20 transition-colors">0{index + 1}</span>
+                                    <span className="text-5xl sm:text-6xl font-bold text-white/10 group-hover:text-ignite-orange/20 transition-colors">0{index + 1}</span>
                                 </div>
-                                <h3 className="text-2xl font-bold text-white mb-4 relative inline-block">
+                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 relative inline-block">
                                     {item.title}
                                     <span className="absolute left-0 bottom-0 w-0 h-1 bg-ignite-orange transition-all duration-300 group-hover:w-full" />
                                 </h3>
-                                <p className="text-gray-400 group-hover:text-white transition-colors">
+                                <p className="text-gray-400 group-hover:text-white transition-colors text-sm sm:text-base">
                                     {item.text}
                                 </p>
                             </div>

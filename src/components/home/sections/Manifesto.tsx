@@ -28,13 +28,13 @@ export default function Manifesto() {
     };
 
     return (
-        <section className="py-32 px-4 bg-black relative">
+        <section className="py-20 sm:py-32 px-4 bg-black relative">
             <div
                 ref={divRef}
                 onMouseMove={handleMouseMove}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="max-w-5xl mx-auto relative border border-white/10 rounded-3xl p-16 md:p-24 overflow-hidden text-center"
+                className="max-w-5xl mx-auto relative border border-white/10 rounded-3xl p-8 sm:p-16 md:p-24 overflow-hidden text-center"
             >
                 {/* Spotlight */}
                 <div
@@ -46,7 +46,7 @@ export default function Manifesto() {
                 />
 
                 <div className="relative z-10 space-y-6">
-                    <p className="text-4xl md:text-6xl font-black text-white leading-tight">
+                    <p className="text-3xl sm:text-4xl md:text-6xl font-black text-white leading-tight">
                         You were not born to obey. <br />
                         You were born to <span className="text-ignite-orange">create</span>. <br />
                         To question. <br />
@@ -57,10 +57,10 @@ export default function Manifesto() {
                         </span>
                     </p>
 
-                    <div className="pt-12">
+                    <div className="pt-8 sm:pt-12">
                         <Link
                             href="/about"
-                            className="inline-flex items-center gap-2 text-lg font-bold text-white hover:text-ignite-orange transition-colors"
+                            className="inline-flex items-center gap-2 text-base sm:text-lg font-bold text-white hover:text-ignite-orange transition-colors"
                         >
                             Read the Full Manifesto <ArrowRight className="w-5 h-5" />
                         </Link>
